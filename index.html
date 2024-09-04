@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ichiro Okochi</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img id="custom-cursor" src="cursor.png" alt="Custom Cursor">
+    
+    <div id="hover-instructions">Hover and click on the planets to see more information! <br>Click the black hole to view the one-page normal resume</div>
+    
+
+
+
+    
+    
+    <div id="fade-overlay"></div> 
+    <div id="planets-section">
+        
+        <div id="rocket"></div> 
+        <div id="contact-text" class="orbit-text">Contact</div> 
+        
+        <div id="sun" class="planets"></div>
+        <div id="experience-text" class="orbit-text">Experience</div> 
+
+        <div id="earth" class="planets"></div>
+        <div id="skills-text" class="orbit-text">Skills</div> 
+
+        <div id="jupiter" class="planets"></div>
+        <div id="education-text" class="orbit-text">Education</div> 
+
+        <div id="mars" class="planets"></div>
+        <div id="awards-text" class="orbit-text">Awards</div> 
+    </div>
+    
+    <div id="blackhole"></div> 
+    
+
+
+    
+    <div id="rocket-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('rocket-modal')">&times;</span>
+            <h2>Contact Information</h2>
+            <p>Ichiro Okochi</p>
+            <p>3230 Moss Creek Dr</p>
+            <p>Marietta</p>
+            <p>(770) 695-6101</p>
+            <p>ichikaf1655@gmail.com</p>
+        </div>
+    </div>
+
+    <div id="skills-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('skills-modal')">&times;</span>
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming in Java, Javascript, Python, HTML/CSS</li>
+                <li>Bilingual in Japanese and English</li>
+                <li>Adaptability from living in multiple countries (Thailand, Indonesia, Japan, and US)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="experience-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('experience-modal')">&times;</span>
+            <h2>Experience</h2>
+            <ul>
+                <li><strong>Coastal Mowing Masters, Marietta, GA - Website Developer (August 2024 - Present)</strong>
+                    <br>Coded a website for a mowing company to provide customers with easier access to contact and information.</li>
+                <li><strong>Humanitarian Club, Pope High School (August 2023 - Present)</strong>
+                    <br>Founded the club, attracting over 30 members in the first year, and organized multiple volunteering events.</li>
+                <li><strong>Model UN, Pope High School - Delegate (August 2021 - Present)</strong>
+                    <br>Participated in 6 conferences, contributing to debates, resolutions, and diplomatic negotiations.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="education-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('education-modal')">&times;</span>
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Pope High School, Marietta, GA - High School Diploma (Expected Graduation: May 2025)</strong></li>
+                <li>GPA: 3.9</li>
+                <li>Notable Coursework: AP US History, AP Computer Science, AP Physics, AP Calculus, AP Am Lit</li>
+                <li>Clubs Involved: Key Club, Model UN, Pope Robotics, Humanitarian, Math, Red Cross</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="awards-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('awards-modal')">&times;</span>
+            <h2>Awards</h2>
+            <ul>
+                <li><strong>Pope Academic Letter Award (May 2023)</strong></li>
+                <li><strong>Best Award from the 3rd Science Research Presentation Contest (January 2018)</strong>
+                    <br>The 3rd Science Research Presentation Contest for Elementary and Junior High School Students is a contest where participants present their scientific research to executives of local companies. I received the best award, which was highlighted in a local newspaper.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="resume-normal">
+    <span id="resume-close" class="close">&times;</span>
+    <div id="resume-panel">
+        <h1>Ichiro Okochi</h1>
+        <p>3230 Moss Creek Dr, Marietta, GA</p>
+        <p>(770) 695-6101</p>
+        <p>ichikaf1655@gmail.com</p>
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming in Java, Javascript, Python, HTML/CSS</li>
+            <li>Bilingual in Japanese and English</li>
+            <li>Adaptability from living in multiple countries (Thailand, Indonesia, Japan, and US)</li>
+        </ul>
+        <h2>Experience</h2>
+        <ul>
+            <li><strong>Coastal Mowing Masters, Marietta, GA - Website Developer (August 2024 - Present)</strong>
+                <br>Coded a website for a mowing company to provide customers with easier access to contact and information.</li>
+            <li><strong>Humanitarian Club, Pope High School (August 2023 - Present)</strong>
+                <br>Founded the club, attracting over 30 members in the first year, and organized multiple volunteering events.</li>
+            <li><strong>Model UN, Pope High School - Delegate (August 2021 - Present)</strong>
+                <br>Participated in 6 conferences, contributing to debates, resolutions, and diplomatic negotiations.</li>
+        </ul>
+        <h2>Education</h2>
+        <ul>
+            <li><strong>Pope High School, Marietta, GA - High School Diploma (Expected Graduation: May 2025)</strong></li>
+            <li>GPA: 3.9</li>
+            <li>Notable Coursework: AP US History, AP Computer Science, AP Physics, AP Calculus, AP Am Lit</li>
+            <li>Clubs Involved: Key Club, Model UN, Pope Robotics, Humanitarian, Math, Red Cross</li>
+        </ul>
+        <h2>Awards</h2>
+        <ul>
+            <li><strong>Pope Academic Letter Award (May 2023)</strong></li>
+            <li><strong>Best Award from the 3rd Science Research Presentation Contest (January 2018)</strong>
+                <br>The 3rd Science Research Presentation Contest for Elementary and Junior High School Students is a contest where participants present their scientific research to executives of local companies. I received the best award, which was highlighted in a local newspaper.</li>
+        </ul>
+    </div>
+</div>
+
+
+
+    
+    <script src="resume-animations.js"></script>
+   
+</body>
+</html>
