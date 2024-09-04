@@ -1,0 +1,366 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    cursor: none;
+}
+
+#planets-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sun {
+    width: 10vw; 
+    height: 10vw; 
+    background-color: yellow;
+    border-radius: 50%;
+    background-image: url('sun.png');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center; 
+}
+
+@keyframes moveRocket {
+    from {
+        left: 10px;
+    }
+    to {
+        left: 20vw; 
+    }
+}
+
+#rocket {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 10vw;
+    height: 20vh; 
+    background-image: url('rocket.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: moveRocket 5s forwards; 
+    transition: transform 0.3s ease, filter 0.3s ease; 
+}
+
+#rocket:hover {
+    cursor:none;
+    transform: rotate(-15deg); 
+    filter: brightness(1.5); 
+}
+
+
+
+.orbit-text {
+    position: absolute;
+    display: none;
+    transform-origin: center;
+    white-space: nowrap;
+}
+
+.planets {
+    position: absolute;
+    width: 6vw; 
+    height: 6vw; 
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planets:hover {
+    cursor:none;
+    transform: scale(1.2); 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); 
+}
+
+#earth {
+    top: 20%;
+    left: 70%;
+    background-image: url('earth.png');
+}
+
+#jupiter {
+    top: 70%;
+    left: 20%;
+    background-image: url('jupiter.png');
+}
+
+#mars {
+    top: 80%;
+    left: 60%;
+    background-image: url('mars.png');
+}
+
+#fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: orange; 
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10; 
+    transition: opacity 1s ease, background-color 0.5s ease; 
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 20; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.0); 
+    opacity: 0; 
+    transition: opacity 1s ease; 
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.85); 
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7); 
+    width: 90%;
+    max-width: 600px;
+    color: #f0f0f0; 
+    font-size: 1.1em; 
+    line-height: 1.6; 
+    font-family: Arial, sans-serif; 
+    transform: scale(0.9); 
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.modal-content h2 {
+    font-size: 1.5em; 
+    margin-bottom: 15px; 
+    color: #ffffff; 
+}
+
+.modal-content ul {
+    padding-left: 20px; 
+}
+
+.modal-content li {
+    margin-bottom: 10px; 
+}
+
+.close {
+    color: #ddd; 
+    float: right;
+    font-size: 32px; 
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; 
+    text-decoration: none;
+    cursor: none;
+}
+
+.show-modal {
+    display: block; 
+    opacity: 1; 
+}
+
+.show-modal-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/*adjust for screen size*/
+@media (min-width: 768px) {
+    .modal-content {
+        width: 70%; 
+        padding: 40px; 
+        font-size: 1.2em; 
+    }
+
+    .modal-content h2 {
+        font-size: 1.8em; 
+    }
+
+    .close {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-content {
+        width: 50%;
+        padding: 50px;
+        font-size: 1.3em; 
+    }
+
+    .modal-content h2 {
+        font-size: 2em; 
+    }
+
+    .close {
+        font-size: 40px; 
+    }
+}
+#blackhole {
+    filter: blur(1px) contrast(1.5);
+    position: absolute;
+    top: 80%;
+    left: 90%;
+    width: 10vw; 
+    height: 10vw; 
+    background-image: url('blackhole.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%) scale(1); 
+    transition: transform 0.5s ease, filter 0.5s ease; 
+}
+
+#blackhole:hover {
+    
+    filter: blur(2px) contrast(1.5);
+    animation: ripple 2s infinite; 
+    cursor: none; 
+}
+
+@keyframes ripple {
+    0% {
+        filter: blur(1px) contrast(1.5);
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    50% {
+        filter: blur(2px) contrast(1.8);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        filter: blur(1px) contrast(1.5);
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+
+@keyframes suckUp {
+    to {
+        transform: translate(0, 0) scale(0) rotate(720deg); 
+        opacity: 0;
+    }
+}
+
+.sucked-up {
+    animation: suckUp 2s ease-in-out forwards; 
+}
+
+#resume-normal {
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: white; 
+    background-image: url('spacebg.gif'); 
+    background-size: cover; 
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; 
+    z-index: 30; 
+    box-sizing: border-box; 
+}
+
+#resume-panel {
+    background-color: rgba(0, 0, 0, 0.85); 
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7); 
+    width: 90%;
+    max-width: 800px;
+    color: white;
+    text-align: left;
+    box-sizing: border-box; 
+}
+
+#resume-close {
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 31; 
+}
+
+#resume-close:hover {
+    color: #aaa; 
+    cursor: none;
+}
+
+
+
+
+
+
+/*change cursor*/
+#custom-cursor {
+    position: absolute;
+    pointer-events: none; 
+    width: 50px; 
+    height: 50px; 
+    transform: translate(-50%, -50%); 
+    z-index: 10000; 
+    transition: filter 0.2s ease; 
+}
+
+
+#custom-cursor.clicked {
+    filter: brightness(1.5); 
+}
+#hover-instructions {
+    position: absolute;
+    bottom: 50%; /* Adjust this value to position it correctly */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 1;
+    z-index: 1000;
+    transition: opacity 2s ease-in-out;
+}
+
+#blackhole-instructions {
+    position: absolute;
+    bottom: 20px; /* Slightly below the hover instructions */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 1;
+    z-index: 1000;
+    transition: opacity 2s ease-in-out;
+}
